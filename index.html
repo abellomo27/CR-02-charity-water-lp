@@ -1,47 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clean Water for All</title>
+  <style>
+    :root {
+      --blue: #2fa0ff;
+      --deep: #064273;
+      --light: #eaf6ff;
+      --text: #333;
+      --white: #ffffff;
+    }
+
+    body { margin: 0; font-family: Arial, sans-serif; color: var(--text); }
+    img { max-width: 100%; display: block; }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--deep);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .navbar a.logo {
+      color: var(--white);
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding-top: 60px; /* space for navbar */
+    }
+    .hero-media { position: absolute; inset: 0; z-index: 0; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.45); z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; padding: 2rem; max-width: 900px; }
+    .hero h1 { font-size: clamp(2rem, 6vw, 3.25rem); margin: 0 0 0.75rem; color: var(--blue); }
+    .hero .tagline { font-size: 1.2rem; margin: 0 0 1rem; color: var(--white); }
+    .hero .mission { font-size: 1.1rem; margin: 0 auto 1.5rem; max-width: 800px; }
+    .btn { display: inline-block; background: var(--blue); color: var(--white); padding: 0.8rem 1.4rem; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.25s ease; }
+    .btn:hover { background: #177fda; }
+
+    /* SECTIONS */
+    .section { padding: 3rem 1.25rem; }
+    .section.light { background: #fff; }
+    .section.soft { background: var(--light); }
+    .section h2 { text-align: center; color: var(--deep); margin-bottom: 1rem; }
+
+    .impact-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; max-width: 1000px; margin: 0 auto; }
+    .stat { background: #fff; border-radius: 10px; padding: 1.2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+    .stat h3 { margin: 0 0 0.25rem; color: var(--blue); font-size: 1.6rem; }
+
+    /* CTA */
+    .cta { text-align: center; padding: 3rem 1.25rem; background: var(--deep); color: var(--white); }
+    .cta h2 { margin: 0 0 0.75rem; font-size: 2rem; }
+
+    @media (min-width: 768px) {
+      .impact-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
 
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="logo">CleanWater</a>
+    <div class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#impact">Impact</a>
+      <a href="#donate">Donate</a>
+    </div>
+  </nav>
 
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
-        </div>
-    </section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-media">
+      <img src="images/hero.jpg" alt="Person carrying water in a green landscape" />
+    </div>
+    <div class="hero-content">
+      <h1>We won’t stop until everyone has clean water</h1>
+      <p class="tagline">Every cent is one cleaner drop closer to health</p>
+      <p class="mission">Charity Water is determined to better those in communities who lack a clean source of drinking water until there is no one left with unsanitary water.</p>
+      <a class="btn" href="#donate">Donate Now</a>
+    </div>
+  </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
-    </section>
+  <!-- STORY -->
+  <section class="section light" id="story">
+    <h2>Our story</h2>
+    <p class="lead">We partner with local leaders to bring sustainable, community-owned water projects to places that need them most.</p>
+    <img src="images/story.jpg" alt="Volunteers celebrating near a water source" />
+  </section>
+
+  <!-- IMPACT -->
+  <section class="section soft" id="impact">
+    <h2>Your impact</h2>
+    <div class="impact-grid">
+      <div class="stat"><h3>10,000+</h3><p>Projects funded</p></div>
+      <div class="stat"><h3>1M+</h3><p>People served</p></div>
+      <div class="stat"><h3>25+</h3><p>Countries reached</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="donate">
+    <h2>Be the drop that starts the ripple</h2>
+    <p>Every gift moves us closer to a world where clean water is a reality for everyone.</p>
+    <a class="btn" href="#">Donate Today</a>
+  </section>
+
 </body>
 </html>
